@@ -4,77 +4,54 @@
   <meta charset="utf-8">
   <title></title>
   <style>
-    body {
-      background-color: white;
-      text-align: center;
-    }
-    
-.lds-ellipsis,
-.lds-ellipsis div {
-  box-sizing: border-box;
-}
-.lds-ellipsis {
+      body {
+        background-color: lightblue;
+        text-align: center;
+      }
+      
+      .lds-ring {
   display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
 }
-.lds-ellipsis div {
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
   position: absolute;
-  top: 33.33333px;
-  width: 13.33333px;
-  height: 13.33333px;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
   border-radius: 50%;
-  background: currentColor;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
 }
-.lds-ellipsis div:nth-child(1) {
-  left: 8px;
-  animation: lds-ellipsis1 0.6s infinite;
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
 }
-.lds-ellipsis div:nth-child(2) {
-  left: 8px;
-  animation: lds-ellipsis2 0.6s infinite;
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
 }
-.lds-ellipsis div:nth-child(3) {
-  left: 32px;
-  animation: lds-ellipsis2 0.6s infinite;
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
 }
-.lds-ellipsis div:nth-child(4) {
-  left: 56px;
-  animation: lds-ellipsis3 0.6s infinite;
-}
-@keyframes lds-ellipsis1 {
+@keyframes lds-ring {
   0% {
-    transform: scale(0);
+    transform: rotate(0deg);
   }
   100% {
-    transform: scale(1);
+    transform: rotate(360deg);
   }
 }
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(24px, 0);
-  }
-}
+
   </style>
 </head>
 <body>
   <script>
     const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbwlfbjI_1FnZ4kVpJ_YbXzB9iKu916xH0S5gDuI5WHPBajZ3IPqUcPVQtCqP_wkfUB7pQ/exec";
-
-     var url = document.location.href;
+    
+    var url = document.location.href;
     var k = url.substr(url.lastIndexOf("k=")+2);
     
     if(k){
@@ -92,8 +69,8 @@
 
   </script>
   
-  <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+  
   
 </body>
 </html>

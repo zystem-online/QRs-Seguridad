@@ -74,22 +74,24 @@
   <script>
     const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbwlfbjI_1FnZ4kVpJ_YbXzB9iKu916xH0S5gDuI5WHPBajZ3IPqUcPVQtCqP_wkfUB7pQ/exec";
 
-    var url = document.location.href;
-    var k = utl.substr(url.lastIndexOf("k=")+2);
-
+     var url = document.location.href;
+    var k = url.substr(url.lastIndexOf("k=")+2);
+    
     if(k){
       fetch(AS_URL_BASE+'?k='+k)
       .then(r => r.text())
       .then((r) => {
         console.log(r);
-        //document.whiter(r);
+        //document.write(r);
         if(r){
           document.location.replace(r);
         }
       })
       .catch(err => console.log(err))
     }
+
   </script>
+  
   <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 </body>
 </html>
